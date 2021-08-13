@@ -74,4 +74,4 @@ def read_from_teradata(teradata_host=None,DBS_PORT=None,database=None,query=None
 
 # COMMAND ----------
 
-
+print("hello")

@@ -29,6 +29,7 @@ class Test1Fixture(NutterFixture):
   def assertion_code1(self):
     df = spark.read.table(self.code1_view_name)
     assert(df.count() == self.code1_num_entries)
+#     assert(df.count() == 55)
     
   def run_code2(self):
     generate_data2(table_name = self.code2_table_name)
@@ -37,6 +38,7 @@ class Test1Fixture(NutterFixture):
     some_tbl = sqlContext.sql(f'SELECT COUNT(*) AS total FROM {self.code2_table_name}')
     first_row = some_tbl.first()
     assert (first_row[0] == 10)
+#     assert (first_row[0] == 9)
 
   def after_code2(self):
     spark.sql(f"drop table {self.code2_table_name}")
